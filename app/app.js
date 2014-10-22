@@ -3,15 +3,14 @@
 var dbname = process.env.DBNAME || 'default-db';
 var port = process.env.PORT || 4000;
 
-var traceur        = require('traceur');
 var express        = require('express');
 var less           = require('express-less');
 var morgan         = require('morgan');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var cookieSession  = require('cookie-session');
-var initMongo      = traceur.require(__dirname + '/lib/init-mongo.js');
-var initRoutes     = traceur.require(__dirname + '/lib/init-routes.js');
+var initMongo      = require(__dirname + '/lib/init-mongo.js');
+var initRoutes     = require(__dirname + '/lib/init-routes.js');
 
 /* --- configuration    */
 var app = express();
@@ -35,7 +34,7 @@ server.listen(port, function(){
 });
 
 /* --- socket.io        */
-var sockets = traceur.require(__dirname + '/lib/sockets.js');
+var sockets = require(__dirname + '/lib/sockets.js');
 var io = require('socket.io')(server);
 io.of('/app').on('connection', sockets.connection);
 
