@@ -9,7 +9,10 @@ html
   body
     .contain-to-grid.sticky
       nav.top-bar(data-topbar="")
-        h1= title
+        ul.title-area
+          li.name
+            h1
+              a(href='/')= title
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
