@@ -3,18 +3,18 @@ extends ../shared/template
 block content
   .row
     .large-8.large-centered.columns
-      form
+      form(action='/notifications', method='POST')
         .large-12.columns
           fieldset
             legend Create New Notification
             .row
               .small-12.columns
-                label Select Client
-                  select#clients
+                label Select Product
+                  select#products
+                    each product in products
+                      option(value='#{product._id.toString()}')= product.name
                 label Select Build
                   select#builds
-                label Stakeholders
-                  select#stakeholders
                 label Notification
                   textarea(placeholder='Dear Stakeholders...')
-                button.button.expand Go
+                button.button.expand Send

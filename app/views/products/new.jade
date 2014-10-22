@@ -1,0 +1,16 @@
+extends ../shared/template
+
+block content
+  .row
+    .large-8.large-centered.columns
+      form(action='/products', method='POST')
+        .large-12.columns
+          fieldset
+            legend Create New Product
+            .row
+              .large-12.columns
+                label Name
+                  input(name='name' type='text' placeholder='Product Name')
+                label Add Stakeholders
+                  include stakeholders
+                button.button.expand Create

@@ -8,11 +8,20 @@ html
     link(href='/css/foundation.min.css', rel='stylesheet')
   body
     .contain-to-grid.sticky
-      nav.top-bar(data-topbar="")
+      nav.top-bar(data-topbar="" role="navigation")
         ul.title-area
           li.name
             h1
               a(href='/')= title
+        section.top-bar-section
+          ul.right
+            li
+              a(href='/') Home
+            li
+              a(href='/notifications/new') New Notification
+            li
+              a(href='/products/new') New Product
+
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
