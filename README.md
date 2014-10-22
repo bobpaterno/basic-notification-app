@@ -1,9 +1,9 @@
-* Basic Notification Dashboard
+# Basic Notification Dashboard
 
-** Summary
+## Summary
 Simple dashboard app for internal product management
 
-** Technologies
+## Technologies
 - Node.js
 - Express
 - MongoDB
