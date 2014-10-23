@@ -4,6 +4,6 @@ block content
   each product in products
     .row
       .large-8.columns
-        ul
+        ul.no-bullets
           li
             a(href='/products/#{product._id.toString()}')= product.name

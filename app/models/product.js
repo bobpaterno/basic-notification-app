@@ -27,11 +27,10 @@ Product.findById = function(id, cb){
 
 
 Product.create = function(prodName, stakeholders, cb) {
-    var product = new Product();
-    product.name = prodName;
-    product.stakeholders = massageStakeholderObject(stakeholders);
-
-    productsCollection.save(product, function(){ cb(product); });
+  var product = new Product();
+  product.name = prodName;
+  product.stakeholders = massageStakeholderObject(stakeholders);
+  productsCollection.save(product, function(){ cb(product); });
 };
 
 // ================
@@ -39,7 +38,6 @@ Product.create = function(prodName, stakeholders, cb) {
 // ================
 function getStakeholder(pStakeholder,callback){
   Stakeholder.findById(pStakeholder._id, function(stakeholder){
-    console.log('55555555555555555555555555555555562e87637642398764928637896');
     var result = { name: stakeholder.name, email: stakeholder.email, role: pStakeholder.role } ;
     console.log(result);
     callback(null, result);
@@ -49,7 +47,12 @@ function getStakeholder(pStakeholder,callback){
 function massageStakeholderObject(stakeholders) {
   // Converts a compex object into an a useble array of objects
   //{ ids: [val,val,...], roles: [val,val,...] } --> [ {id:val, role:val}, ... ]
-  return _.zip(stakeholders).map(function(rec){ return {_id:rec[0], role:rec[1]}; });
+  if(typeof stakeholders.name === 'string') {
+    return [{ _id:stakeholders.name, role:stakeholders.role }];
+  }
+  else {
+    return _.zip(stakeholders).map(function(rec){ return { _id:rec[0], role:rec[1]}; });
+  }
 }
 
 module.exports = Product;

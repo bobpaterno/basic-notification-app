@@ -22,6 +22,7 @@ function load(app, fn){
   app.post('/products', dbg, products.create);
   app.get('/products/new', dbg, products.new);
   app.get('/products/:id', dbg, products.show);
+  app.post('/notifications', dbg, notifications.create);
   app.get('/notifications/new', dbg, notifications.new);
 
   console.log('Routes Loaded');
