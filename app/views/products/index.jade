@@ -1,0 +1,9 @@
+extends ../shared/template
+
+block content
+  each product in products
+    .row
+      .large-8.columns
+        ul
+          li
+            a(href='/products/#{product._id.toString()}')= product.name

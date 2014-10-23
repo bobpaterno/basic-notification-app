@@ -18,8 +18,10 @@ function load(app, fn){
   var products = require(__dirname + '/../routes/products.js');
 
   app.get('/', dbg, home.index);
-  app.get('/products/new', dbg, products.new);
+  app.get('/products', dbg, products.index);
   app.post('/products', dbg, products.create);
+  app.get('/products/new', dbg, products.new);
+  app.get('/products/:id', dbg, products.show);
   app.get('/notifications/new', dbg, notifications.new);
 
   console.log('Routes Loaded');

@@ -3,7 +3,7 @@
     .large-8.columns
       select(name='stakeholder[name]')
         each stakeholder in stakeholders
-          option= stakeholder.name
+          option(value=stakeholder._id)= stakeholder.name
     .large-4.columns
       input(name='stakeholder[role]' type='text' placeholder='Stakeholder Role')
 a(href='#').button.tiny.radius.right#add-stakeholder Add

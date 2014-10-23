@@ -1,0 +1,12 @@
+extends ../shared/template
+
+block content
+  .row
+    .large-12.columns
+      h3= product.name
+      each stakeholder in product.stakeholders
+        .row
+          .large-6.columns
+            p '#{stakeholder.name} - #{stakeholder.email}'
+          .large-6.columns
+            p= stakeholder.role
